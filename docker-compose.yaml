@@ -15,6 +15,7 @@ services:
 
   web:
     build: .
+    image: adm11n/yamdb_final:latest
     restart: always
     volumes:
       - static_value:/code/static/
