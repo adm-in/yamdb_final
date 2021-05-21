@@ -14,8 +14,8 @@ services:
       - ./.env
 
   web:
-    build: .
-    #image: ${{ secrets.DOCKERHUB_USERNAME }}//yamdb_final:latest
+    image: adm11n/yamdb_final:latest
+    #build: .
     restart: always
     volumes:
       - static_value:/code/static/
