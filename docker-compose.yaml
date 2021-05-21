@@ -15,7 +15,7 @@ services:
 
   web:
     image: admiin/yamdb_final:latest
-    #build: .
+    build: .
     restart: always
     volumes:
       - static_value:/code/static/
