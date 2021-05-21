@@ -14,7 +14,7 @@ services:
       - ./.env
 
   web:
-    image: adm11n/yamdb_final:latest
+    image: admiin/yamdb_final:latest
     #build: .
     restart: always
     volumes:
