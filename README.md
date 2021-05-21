@@ -15,9 +15,8 @@
 - Загружаем тестовые данные ```python manage.py loaddata fixtures.json```
 6. Зайдите на http://127.0.0.1/admin/ и убедитесь, что страница отображается полностью: статика подгрузилась и вы можете залогиниться под суперпользователем которого только что создали. 
 
-- [myproject](http://djangoproject.gq)
 - [admin](http://djangoproject.gq/admin)
-- [api](http://djangoproject.gq/api)
+- [api](http://djangoproject.gq/api/v1)
 - [redoc](http://djangoproject.gq/redoc)
 ### Технологии:
 
