@@ -11,7 +11,7 @@ SECRET_KEY = os.getenv('SECRET_KEY', 'MY_SECRET_KEY')
 
 DEBUG = False
 
-ALLOWED_HOSTS = ['*']
+ALLOWED_HOSTS = os.getenv('ALLOWED_HOSTS')
 
 INSTALLED_APPS = [
     'django.contrib.admin',
@@ -73,7 +73,7 @@ DATABASES = {
 AUTH_PASSWORD_VALIDATORS = [
     {
         'NAME': (
-            'django.contrib.auth.password_validation.',
+            'django.contrib.auth.password_validation.'
             'UserAttributeSimilarityValidator'
         ),
     },
@@ -84,13 +84,13 @@ AUTH_PASSWORD_VALIDATORS = [
     },
     {
         'NAME': (
-            'django.contrib.auth.password_validation.',
+            'django.contrib.auth.password_validation.'
             'CommonPasswordValidator'
         ),
     },
     {
         'NAME': (
-            'django.contrib.auth.password_validation.',
+            'django.contrib.auth.password_validation.'
             'NumericPasswordValidator'
         ),
     },
