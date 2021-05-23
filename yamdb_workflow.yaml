@@ -1,6 +1,9 @@
 name: Django-app workflow
 
-on: [push]
+on:
+  push:
+    branches:
+      - master
 
 jobs:
   tests:
@@ -62,6 +65,10 @@ jobs:
           stack_file_name: docker-compose.yaml
           script: |
             sudo docker-compose down
+            #sudo rm docker-compose.yaml
+            #sudo rm -r nginx
+            #sshpass -p ${{ secrets.PASS_FOR_COPY }} scp -r /home/adm1n/Dev/yamdb_final/docker-compose.yaml adm1n@djangoproject.gq:/home/adm1n/
+            #sshpass -p ${{ secrets.PASS_FOR_COPY }} scp -r /home/adm1n/Dev/yamdb_final/nginx adm1n@djangoproject.gq:/home/adm1n/
             sudo docker image prune -af
             rm .env
             touch .env
@@ -84,6 +91,7 @@ jobs:
             sudo docker-compose up -d
             sudo docker-compose exec -T web python manage.py makemigrations api
             sudo docker-compose exec -T web python manage.py migrate --no-input
+            sudo docker-compose exec web python manage.py collectstatic --no-input
 
   send_message:
     runs-on: ubuntu-latest
