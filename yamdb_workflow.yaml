@@ -65,10 +65,6 @@ jobs:
           stack_file_name: docker-compose.yaml
           script: |
             sudo docker-compose down
-            #sudo rm docker-compose.yaml
-            #sudo rm -r nginx
-            #sshpass -p ${{ secrets.PASS_FOR_COPY }} scp -r /home/adm1n/Dev/yamdb_final/docker-compose.yaml adm1n@djangoproject.gq:/home/adm1n/
-            #sshpass -p ${{ secrets.PASS_FOR_COPY }} scp -r /home/adm1n/Dev/yamdb_final/nginx adm1n@djangoproject.gq:/home/adm1n/
             sudo docker image prune -af
             rm .env
             touch .env
