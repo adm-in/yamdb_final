@@ -61,9 +61,7 @@ jobs:
           passphrase: ${{ secrets.PASSPHRASE_VPS_KEY }} # Если ваш ssh-ключ защищён фразой-паролем
           stack_file_name: docker-compose.yaml
           script: |
-            sudo docker admiin/yamdb_final:latest
-            sudo docker-compose stop web
-            sudo docker-compose rm web
+            sudo docker-compose down
             sudo docker image prune -af
             rm .env
             touch .env
