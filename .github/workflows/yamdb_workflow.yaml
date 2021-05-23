@@ -1,9 +1,6 @@
 name: Django-app workflow
 
-on:
-  push:
-    branches:
-      - master
+on: [push]
 
 jobs:
   tests:
@@ -64,8 +61,8 @@ jobs:
           passphrase: ${{ secrets.PASSPHRASE_VPS_KEY }} # Если ваш ssh-ключ защищён фразой-паролем
           stack_file_name: docker-compose.yaml
           script: |
-            sudo docker-compose down
-            sudo docker image prune -af
+            sudo docker-compose stop web
+            sudo docker-compose rm web
             rm .env
             touch .env
             echo ALLOWED_HOSTS=${{ secrets.ALLOWED_HOSTS }} >> .env
@@ -84,10 +81,8 @@ jobs:
             echo EMAIL_USE_SSL=${{ secrets.USE_SSL}} >> .env
             echo SERVER_EMAIL=${{ secrets.SERVER_EMAIL}} >> .env
             echo DEFAULT_FROM_EMAIL=${{ secrets.DEFAULT_FROM_EMAIL }} >> .env
-            sudo docker-compose up -d --build
-            sudo docker-compose exec -T web python manage.py makemigrations api
+            sudo docker-compose up -d
             sudo docker-compose exec -T web python manage.py migrate api
-            sudo docker-compose exec -T web python manage.py makemigrations --noinput
             sudo docker-compose exec -T web python manage.py migrate --noinput
             sudo docker-compose exec -T web python manage.py collectstatic --no-input
 
