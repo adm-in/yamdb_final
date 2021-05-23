@@ -14,8 +14,7 @@ services:
       - ./.env
 
   web:
-    build: .
-    #image: admiin/yamdb_final:latest
+    image: admiin/yamdb_final:latest
     restart: always
     volumes:
       - static_value:/code/static/
