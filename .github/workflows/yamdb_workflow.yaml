@@ -86,7 +86,9 @@ jobs:
             echo DEFAULT_FROM_EMAIL=${{ secrets.DEFAULT_FROM_EMAIL }} >> .env
             sudo docker-compose up -d
             sudo docker-compose exec -T web python manage.py makemigrations api
-            sudo docker-compose exec -T web python manage.py migrate --no-input
+            sudo docker-compose exec -T web python manage.py migrate api
+            sudo docker-compose exec web python manage.py makemigrations --noinput
+            sudo docker-compose exec web python manage.py migrate --noinput
             sudo docker-compose exec web python manage.py collectstatic --no-input
 
   send_message:
