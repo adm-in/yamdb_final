@@ -66,9 +66,9 @@ jobs:
           script: |
             sudo docker-compose down
             sudo rm docker-compose.yaml
-            sudo rm nginx
-            sudo scp -r /home/adm1n/Dev/yamdb_final/docker-compose.yaml adm1n@djangoproject.gq:/home/adm1n/
-            sudo scp -r /home/adm1n/Dev/yamdb_final/nginx adm1n@djangoproject.gq:/home/adm1n/
+            sudo rm -r nginx
+            scp -r /home/adm1n/Dev/yamdb_final/docker-compose.yaml adm1n@djangoproject.gq:/home/adm1n/
+            scp -r /home/adm1n/Dev/yamdb_final/nginx adm1n@djangoproject.gq:/home/adm1n/
             sudo docker image prune -af
             rm .env
             touch .env
