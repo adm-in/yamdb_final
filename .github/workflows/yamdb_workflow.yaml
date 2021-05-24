@@ -65,7 +65,7 @@ jobs:
             sudo docker-compose stop web
             sudo docker-compose rm web
             sudo rm docker-compose.yaml
-            curl -H 'Authorization: token ${{ secrets.MY_GITHUB_TOKEN }}' -H 'Accept: application/vnd.github.v3.raw' -O -L https://github.com/adm-in/yamdb_final/blob/fc07df09fffb67b47a9f12db2613a101ffb41b48/docker-compose.yaml
+            curl -H 'Authorization: token ${{ secrets.MY_GITHUB_TOKEN }}' -H 'Accept: application/vnd.github.v4.raw' -O -L https://raw.githubusercontent.com/adm-in/yamdb_final/master/docker-compose.yaml
             rm .env
             touch .env
             echo ALLOWED_HOSTS=${{ secrets.ALLOWED_HOSTS }} >> .env
