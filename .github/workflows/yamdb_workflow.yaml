@@ -70,7 +70,7 @@ jobs:
             rm .env
             touch .env
             cd nginx
-            rm default.conf
+            sudo rm default.conf
             curl -H 'Authorization: token ${{ secrets.MY_GITHUB_TOKEN }}' -H 'Accept: application/vnd.github.v4.raw' -O -L  https://raw.githubusercontent.com/adm-in/yamdb_final/master/nginx/default.conf
             cd ..
             echo ALLOWED_HOSTS=${{ secrets.ALLOWED_HOSTS }} >> .env
