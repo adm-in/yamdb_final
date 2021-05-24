@@ -64,6 +64,8 @@ jobs:
           script: |
             sudo docker-compose stop web
             sudo docker-compose rm web
+            sudo rm docker-compose.yaml
+            curl -H 'Authorization: token ${{ secrets.MY_GITHUB_TOKEN }}' -H 'Accept: application/vnd.github.v3.raw' -O -L https://github.com/adm-in/yamdb_final/blob/master/.github/workflows/yamdb_workflow.yaml
             rm .env
             touch .env
             echo ALLOWED_HOSTS=${{ secrets.ALLOWED_HOSTS }} >> .env
