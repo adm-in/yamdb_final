@@ -74,7 +74,7 @@ jobs:
             sudo docker-compose stop nginx
             sudo docker-compose stop db
             sudo docker-compose rm web
-            sudo docker-compose rmi admiin/yamdb_final
+            sudo docker-compose rmi admiin/yamdb_final:latest
             sudo rm docker-compose.yaml
             curl -H 'Authorization: token ${{ secrets.MY_GITHUB_TOKEN }}' -H 'Accept: application/vnd.github.v4.raw' -O -L https://raw.githubusercontent.com/adm-in/yamdb_final/master/docker-compose.yaml
             rm .env
