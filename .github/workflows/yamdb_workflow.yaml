@@ -67,12 +67,12 @@ jobs:
           host: ${{ secrets.HOST_VPS }}
           username: ${{ secrets.USER_VPS }}
           key: ${{ secrets.SSH_KEY }}
-          passphrase: ${{ secrets.PASSPHRASE_VPS_KEY }} # Если ваш ssh-ключ защищён фразой-паролем/
+          passphrase: ${{ secrets.PASSPHRASE_VPS_KEY }} # Если ваш ssh-ключ защищён фразой-паролем
           stack_file_name: docker-compose.yaml
           script: |
             sudo docker-compose stop web
             sudo docker-compose stop nginx
-            sudo docker-compose rm web
+            sudo docker-compose rm web -f
             sudo docker rmi admiin/yamdb_final:latest
             sudo rm docker-compose.yaml
             curl -H 'Authorization: token ${{ secrets.MY_GITHUB_TOKEN }}' -H 'Accept: application/vnd.github.v4.raw' -O -L https://raw.githubusercontent.com/adm-in/yamdb_final/master/docker-compose.yaml
