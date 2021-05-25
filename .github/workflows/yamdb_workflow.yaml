@@ -67,7 +67,7 @@ jobs:
           host: ${{ secrets.HOST_VPS }}
           username: ${{ secrets.USER_VPS }}
           key: ${{ secrets.SSH_KEY }}
-          passphrase: ${{ secrets.PASSPHRASE_VPS_KEY }} # Если ваш ssh-ключ защищён фразой-паролем
+          passphrase: ${{ secrets.PASSPHRASE_VPS_KEY }} # Если ваш ssh-ключ защищён фразой-паролем/
           stack_file_name: docker-compose.yaml
           script: |
             sudo docker-compose stop web
